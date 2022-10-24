@@ -7,6 +7,7 @@
 
 html {
     --background-color: rgb(20, 20, 35);
+    --background-color-darker: rgb(10, 10, 20);
     --title-color: rgb(255, 255, 255);
     --subtitle-color: rgb(120, 120, 160);
     --foreground-color: rgb(200, 200, 200);
@@ -131,4 +132,35 @@ section {
 
 #spacer1 {
     background-image: url('resources/spacer1.svg')
+}
+
+.textinput {
+    box-sizing: border-box;
+    background-color: var(--background-color-darker);
+    border-radius: 5px;
+    border: 0px;
+    resize: none;
+    height: 95vh;
+    color: white;
+    font-family: monospace;
+    font-size: 12px;
+    padding: 10px;
+    margin: 2.5vh;
+}
+
+#json-input {
+    margin-right: 1.25vh;
+}
+
+#json-output {
+    margin-left: 1.25vh;
+}
+
+.textinput:focus {
+    outline: none;
+}
+
+#json-section {
+    grid-template-columns: 50% 50%;
+    gap: 0px;
 }
