@@ -164,3 +164,20 @@ section {
     grid-template-columns: 50% 50%;
     gap: 0px;
 }
+
+#guid-section {
+    margin-top: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0px;
+}
+
+#guid-section>p {
+    font-family: monospace;
+    text-align: center;
+    height: 2em;
+    cursor: default;
+}
+
+#guid-section>.clicked {
+    filter: brightness(30%);
+}
