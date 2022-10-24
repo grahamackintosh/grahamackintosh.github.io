@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
     margin: 0;
@@ -17,7 +17,7 @@ html {
     --section4-background-color: rgb(0, 2, 81);
     --section5-background-color: rgb(0, 0, 0);
 
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -28,9 +28,14 @@ body {
 }
 
 h1 {
-    font-family: bold;
+    font-weight: bold;
     letter-spacing: -1px;
     font-size: 30px;
+}
+
+h2 {
+    font-weight: 400;
+    letter-spacing: -0.5px;
 }
 
 section {
@@ -67,8 +72,7 @@ section {
     color: var(--title-color);
     font-size: var(--title-font-size);
     text-align: left;
-    letter-spacing: -2.5px;
-    font-family: bold;
+    letter-spacing: -2px;
     height: 30%;
 }
 
