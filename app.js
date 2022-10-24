@@ -1,28 +1,45 @@
 function enableTab(id) {
     var el = document.getElementById(id);
     el.onkeydown = function (e) {
-        if (e.keyCode === 9) { // tab was pressed
-            // get caret position/selection
+        if (e.keyCode === 9) {
             var val = this.value,
                 start = this.selectionStart,
                 end = this.selectionEnd;
 
-            // set textarea value to: text before caret + tab + text after caret
             this.value = val.substring(0, start) + '\t' + val.substring(end);
 
-            // put caret at right position again
             this.selectionStart = this.selectionEnd = start + 1;
 
-            // prevent the focus lose
             return false;
         }
     };
 }
-// Enable the tab character onkeypress (onkeydown) inside textarea...
-// ... for a textarea that has an `id="my-textarea"`
+
 enableTab('json-input');
 
 const jsonOutput = document.getElementById('json-output');
+
+function styliseJSON(input) {
+    input = input.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    function match_func(match) {
+        if (/^"/.test(match)) {
+            if (!(/:$/.test(match))) {
+                element_class = 'json-prop-string';
+            } else {
+                element_class = 'json-key';
+            }
+        } else if (/true|false/.test(match)) {
+            element_class = 'json-prop-boolean';
+        } else if (/null/.test(match)) {
+            element_class = 'json-prop-null';
+        } else {
+            element_class = 'json-prop-number'
+        }
+        return '<span class="' + element_class + '">' + match + '</span>';
+    }
+    result = input.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, match_func);
+    return result
+}
 
 document.getElementById('json-input').addEventListener('input', function (evt) {
     let json_text = evt.target.value
@@ -41,6 +58,9 @@ document.getElementById('json-input').addEventListener('input', function (evt) {
     }
     if (obj != undefined) {
         let output_text = JSON.stringify(obj, null, 4);
-        jsonOutput.value = output_text;
+        let stylised = styliseJSON(output_text)
+        jsonOutput.innerHTML = stylised;
+    } else {
+        jsonOutput.innerHTML = ""
     }
 });
