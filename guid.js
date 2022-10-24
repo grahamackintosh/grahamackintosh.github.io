@@ -12,6 +12,6 @@ function add_guid() {
     }));
 }
 
-for (var i = 0; i < 100; i++) {
+for (var i = 0; i < 500; i++) {
     add_guid();
 }
