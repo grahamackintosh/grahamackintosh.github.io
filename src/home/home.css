@@ -1,33 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    --background-color: rgb(20, 20, 35);
-    --background-color-darker: rgb(10, 10, 20);
-    --title-color: rgb(255, 255, 255);
-    --subtitle-color: rgb(120, 120, 160);
-    --foreground-color: rgb(200, 200, 200);
-    --title-font-size: 50px;
-    --section2-background-color: rgb(198, 35, 104);
-    --section2-card-color: rgb(160, 0, 85);
-    --section3-background-color: rgb(39, 42, 148);
-    --section4-background-color: rgb(0, 2, 81);
-    --section5-background-color: rgb(0, 0, 0);
-
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background-color: var(--background-color);
-    color: var(--foreground-color);
-    width: 100vw;
-    margin: 0;
-}
-
 h1 {
     font-weight: bold;
     letter-spacing: -1px;
@@ -55,12 +25,6 @@ section {
     }
 }
 
-.centred {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 #section1 {
     height: calc(100vh - (100vw / 3) - 10vh);
     width: 90%;
@@ -75,6 +39,7 @@ section {
     text-align: left;
     letter-spacing: -2px;
     height: 30%;
+    animation: 3s ease-in-out 1 becomeVisible forwards;
 }
 
 #main-subtitles {
@@ -93,9 +58,6 @@ section {
     animation: 1s ease-in-out 1 becomeVisible forwards;
 }
 
-#main-subtitles>h2:nth-child(1) {
-    animation-delay: 1s;
-}
 
 #main-subtitles>h2:nth-child(2) {
     animation-delay: 2s;
@@ -134,19 +96,6 @@ section {
     background-image: url('resources/spacer1.svg')
 }
 
-.textinput {
-    background-color: var(--background-color-darker);
-    border-radius: 5px;
-    border: 0px;
-    resize: none;
-    /* height: 95vh; */
-    color: white;
-    font-family: monospace;
-    font-size: 12px;
-    padding: 10px;
-    margin: 2.5vh;
-}
-
 #json-input {
     margin-right: 1.25vh;
 }
@@ -156,10 +105,6 @@ section {
     margin: 1.25vh;
     font-family: monospace;
     white-space: pre-wrap;
-}
-
-.textinput:focus {
-    outline: none;
 }
 
 #json-section {
